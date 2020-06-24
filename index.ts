@@ -18,7 +18,7 @@ let result = data.reduce( (acc, cur, idx, arr) => {
   }
   return acc;
 }, [] )
-.filter(x => !!x)
+.filter((x:any[]) => x.length > 0)
 .map( (arr:any[]) => arr.length > 1 ? `${arr[0]}-${arr[arr.length-1]}` : `${arr[0]}`)
 
 console.log(result)
