@@ -3,11 +3,26 @@ import "./style.css";
 
 const data: number[] = [2, 3, 4, 8, 11, 12, 34, 35, 36, 37];
 
-const orig = [true, false, false, true, true, false, false, true, false, true, true, 
-false, false, false, false].reduce( (acc, cur, idx) => {
+const orig = [
+  true,
+  false,
+  false,
+  true,
+  true,
+  false,
+  false,
+  true,
+  false,
+  true,
+  true,
+  false,
+  false,
+  false,
+  false
+].reduce((acc, cur, idx) => {
   !cur ? acc.push(idx + 1) : null;
   return acc;
-}, [])
+}, []);
 
 // debugger;
 let result = orig
