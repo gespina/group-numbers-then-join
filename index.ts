@@ -29,19 +29,19 @@ let result = orig
   .reduce((acc, cur, idx, arr) => {
     let curArray = acc.pop() || [];
     let nextVal = arr[idx + 1] || 0;
-    curArray.push(cur);
-    acc.push(curArray);
+    acc.push(curArray.concat(cur));
     if (nextVal !== 0 && nextVal - cur !== 1) {
       acc.push([]);
     }
     return acc;
   }, [])
   .map((arr: any[]) =>
-    arr.length > 1 ? `${arr[0]}-${arr[arr.length - 1]}` : `${arr[0]}`
+    `${arr[0]}${arr.length > 1 ? '-' + arr.slice(-1) : ''}`
   )
   .join(", ");
 
 console.log(result);
+
 // Write TypeScript code!
 const appDiv: HTMLElement = document.getElementById("app");
 appDiv.innerHTML = `<h1>${result}</h1>`;
